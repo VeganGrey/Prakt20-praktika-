@@ -1,0 +1,25 @@
+﻿<Window x:Class="Prakt20_praktika_.SpravochnikTovar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prakt20_praktika_"
+        mc:Ignorable="d"
+        Title="Справочник Товара" Height="327" Width="585" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid x:Name="datagribTovar" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,144">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="3*" Header="№ Товара" Binding="{Binding IdTovar}"></DataGridTextColumn>
+                <DataGridTextColumn Width="10*" Header="Имя товара" Binding="{Binding TovarName}"></DataGridTextColumn>
+                <DataGridTextColumn Width="10*" Header="Цена Товара" Binding="{Binding PriceTovar}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="Tovar" HorizontalAlignment="Left" Margin="48,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="Price" HorizontalAlignment="Left" Margin="416,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Label Content="Название" HorizontalAlignment="Left" Margin="48,172,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Цена" HorizontalAlignment="Left" Margin="416,172,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="84,256,0,0" VerticalAlignment="Top" FontSize="16" Click="AddTovar_Click"/>
+        <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,256,0,0" VerticalAlignment="Top" FontSize="16" Click="DeleteTovar_Click"/>
+        <Button Content="Отмена" HorizontalAlignment="Left" Margin="426,256,0,0" VerticalAlignment="Top" FontSize="16" Click="Quit"/>
+    </Grid>
+</Window>

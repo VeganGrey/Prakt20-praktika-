@@ -1,0 +1,34 @@
+﻿<Window x:Class="Prakt20_praktika_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prakt20_praktika_"
+        mc:Ignorable="d"
+        Title="MainWindow" x:Name="mainwindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="Таблица">
+                <MenuItem Header="Добавить заказ" Click="AddZakaz_Button"></MenuItem>
+                <MenuItem Header="Изменить заказ" Click="EditZakaz_Button"></MenuItem>
+                <MenuItem Header="Удалить" Click="DeleteZakazik_Button"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Справочник">
+                <MenuItem Header="Справочник клиентов" Click="SpravochnikClient_Button"></MenuItem>
+                <MenuItem Header="Справочник товаров" Click="SpavochnikTovar_Button"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <DataGrid x:Name="datagrib" Margin="0,23,0,0" AutoGenerateColumns="False" IsReadOnly="True"> 
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="6*" Header="№Заказа" Binding="{Binding IdZakaz}"></DataGridTextColumn>
+                <DataGridTextColumn Width="8*" Header="Дата заказа" Binding="{Binding DateZakaz,StringFormat=d}"></DataGridTextColumn>
+                <DataGridTextColumn Width="10*" Header="Имя товара" Binding="{Binding Tovar.TovarName}"></DataGridTextColumn>
+                <DataGridTextColumn Width="10*" Header="Имя клиента" Binding="{Binding Client.ClientName}"></DataGridTextColumn>
+                <DataGridTextColumn Width="7*" Header="Город" Binding="{Binding Client.City}"></DataGridTextColumn>
+                <DataGridTextColumn Width="10*" Header="Адрес" Binding="{Binding Client.Adress}"></DataGridTextColumn>
+                <DataGridTextColumn Width="10*" Header="№ Телефона" Binding="{Binding Client.PhoneNumber}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
