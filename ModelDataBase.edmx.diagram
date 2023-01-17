@@ -6,12 +6,11 @@
     <edmx:Diagrams>
       <Diagram DiagramId="1754ed8cb2e9449dabe1c8744de02dfc" Name="Diagram1">
         <EntityTypeShape EntityType="ZakazModel.Client" Width="1.5" PointX="1.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZakazModel.sysdiagram" Width="1.5" PointX="4.125" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZakazModel.sysdiagram" Width="1.5" PointX="9" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ZakazModel.Tovar" Width="1.5" PointX="6.625" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ZakazModel.Zakaz" Width="1.5" PointX="4" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="ZakazModel.FK_Zakazs_Client" ManuallyRouted="false" />
         <AssociationConnector Association="ZakazModel.FK_Zakazs_Tovars" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ZakazModel.ZakazClient" Width="1.5" PointX="8.5" PointY="2.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

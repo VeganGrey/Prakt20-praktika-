@@ -94,9 +94,6 @@
     <Compile Include="Zakaz.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="ZakazClient.cs">
-      <DependentUpon>ModelDataBase.tt</DependentUpon>
-    </Compile>
     <Page Include="AddZakaz.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

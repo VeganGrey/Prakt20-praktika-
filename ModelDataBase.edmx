@@ -45,21 +45,8 @@
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "Zakaz.dbo.ZakazClient" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <EntityType Name="ZakazClient">
-          <Key>
-            <PropertyRef Name="IdZakaz" />
-            <PropertyRef Name="DateZakaz" />
-            <PropertyRef Name="TovarName" />
-            <PropertyRef Name="ClientName" />
-          </Key>
-          <Property Name="IdZakaz" Type="int" Nullable="false" />
-          <Property Name="DateZakaz" Type="datetime" Nullable="false" />
-          <Property Name="TovarName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ClientName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="City" Type="nvarchar" MaxLength="50" />
-          <Property Name="Adress" Type="nvarchar" MaxLength="50" />
-          <Property Name="PhoneNumber" Type="nchar" MaxLength="11" />
-        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Zakaz.dbo.ZakazSumm" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <Association Name="FK_Zakazs_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -93,17 +80,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tovars" EntityType="Self.Tovars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zakazs" EntityType="Self.Zakazs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ZakazClient" EntityType="Self.ZakazClient" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ZakazClient].[IdZakaz] AS [IdZakaz], 
-    [ZakazClient].[DateZakaz] AS [DateZakaz], 
-    [ZakazClient].[TovarName] AS [TovarName], 
-    [ZakazClient].[ClientName] AS [ClientName], 
-    [ZakazClient].[City] AS [City], 
-    [ZakazClient].[Adress] AS [Adress], 
-    [ZakazClient].[PhoneNumber] AS [PhoneNumber]
-    FROM [dbo].[ZakazClient] AS [ZakazClient]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Zakazs_Client" Association="Self.FK_Zakazs_Client">
             <End Role="Client" EntitySet="Client" />
             <End Role="Zakazs" EntitySet="Zakazs" />
@@ -200,23 +176,7 @@
             <End Role="Tovars" EntitySet="Tovars" />
             <End Role="Zakazs" EntitySet="Zakazs" />
           </AssociationSet>
-          <EntitySet Name="ZakazClients" EntityType="ZakazModel.ZakazClient" />
         </EntityContainer>
-        <EntityType Name="ZakazClient">
-          <Key>
-            <PropertyRef Name="IdZakaz" />
-            <PropertyRef Name="DateZakaz" />
-            <PropertyRef Name="TovarName" />
-            <PropertyRef Name="ClientName" />
-          </Key>
-          <Property Name="IdZakaz" Type="Int32" Nullable="false" />
-          <Property Name="DateZakaz" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TovarName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ClientName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -262,19 +222,6 @@
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="IdTovar" ColumnName="IdTovar" />
                 <ScalarProperty Name="Kol" ColumnName="Kol" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ZakazClients">
-            <EntityTypeMapping TypeName="ZakazModel.ZakazClient">
-              <MappingFragment StoreEntitySet="ZakazClient">
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="Adress" ColumnName="Adress" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
-                <ScalarProperty Name="TovarName" ColumnName="TovarName" />
-                <ScalarProperty Name="DateZakaz" ColumnName="DateZakaz" />
-                <ScalarProperty Name="IdZakaz" ColumnName="IdZakaz" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
