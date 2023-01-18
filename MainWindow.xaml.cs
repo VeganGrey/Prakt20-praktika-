@@ -140,7 +140,7 @@ namespace Prakt20_praktika_
                 int findContent = row.IdZakaz;
                 try
                 {
-                    if (findContent != null && findContent == Convert.ToInt32(idzakazika))
+                    if (findContent == Convert.ToInt32(idzakazika.Text))
                     {
                         object item = datagrib.Items[i];
                         datagrib.SelectedItem = item;
