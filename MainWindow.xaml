@@ -5,20 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prakt20_praktika_"
         mc:Ignorable="d"
-        Title="MainWindow" x:Name="mainwindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Заказы" x:Name="mainwindow" Height="365" Width="637" Loaded="Window_Loaded" MinHeight="365" MinWidth="637">
     <Grid>
-        <Menu VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18.002"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="151"/>
+        </Grid.ColumnDefinitions>
+        <Menu VerticalAlignment="Center" Grid.ColumnSpan="2">
             <MenuItem Header="Таблица">
                 <MenuItem Header="Добавить заказ" Click="AddZakaz_Button"></MenuItem>
                 <MenuItem Header="Изменить заказ" Click="EditZakaz_Button"></MenuItem>
                 <MenuItem Header="Удалить" Click="DeleteZakazik_Button"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Фильтр">
+                <MenuItem Header="Общая стоимость заказов" Click="AllSumm_Button"></MenuItem>
+                <MenuItem Header="Заказы по месяцу" Click="FindZakaz_Button"></MenuItem>
+            </MenuItem>
             <MenuItem Header="Справочник">
                 <MenuItem Header="Справочник клиентов" Click="SpravochnikClient_Button"></MenuItem>
                 <MenuItem Header="Справочник товаров" Click="SpavochnikTovar_Button"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Справка" Click="Spravka_Click"></MenuItem>
+            <MenuItem Header="Выйти" Click="Quit"></MenuItem>
         </Menu>
-        <DataGrid x:Name="datagrib" Margin="0,23,0,0" AutoGenerateColumns="False" IsReadOnly="True"> 
+        <DataGrid x:Name="datagrib" Margin="0,5,4,0" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="6*" Header="№Заказа" Binding="{Binding IdZakaz}"></DataGridTextColumn>
                 <DataGridTextColumn Width="8*" Header="Дата заказа" Binding="{Binding DateZakaz,StringFormat=d}"></DataGridTextColumn>
@@ -29,6 +43,12 @@
                 <DataGridTextColumn Width="10*" Header="№ Телефона" Binding="{Binding Client.PhoneNumber}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-
+        <GroupBox Header="Поиск заказа" Margin="1,18,0,0" Grid.Column="1" Grid.RowSpan="2">
+            <Grid>
+                <TextBox x:Name="idzakazika" HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+                <Label Content="Id заказа" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14"/>
+                <Button Content="Найти" HorizontalAlignment="Center" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="14" Width="74" Click="FindIdZakaz_Button"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

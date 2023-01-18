@@ -29,5 +29,6 @@ namespace Prakt20_praktika_
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tovar> Tovars { get; set; }
         public virtual DbSet<Zakaz> Zakazs { get; set; }
+        public virtual DbSet<Zakaziki> Zakazikis { get; set; }
     }
 }

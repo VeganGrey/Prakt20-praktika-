@@ -44,9 +44,14 @@
           <Property Name="Kol" Type="int" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "Zakaz.dbo.ZakazClient" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "Zakaz.dbo.ZakazSumm" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+предупреждение 6002: В таблице или представлении "Zakaz.dbo.Zakaziki" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Zakaziki">
+          <Key>
+            <PropertyRef Name="IdZakaz" />
+          </Key>
+          <Property Name="IdZakaz" Type="int" Nullable="false" />
+          <Property Name="AllPrice" Type="int" />
+        </EntityType>
         <Association Name="FK_Zakazs_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -80,6 +85,12 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tovars" EntityType="Self.Tovars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zakazs" EntityType="Self.Zakazs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zakaziki" EntityType="Self.Zakaziki" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Zakaziki].[IdZakaz] AS [IdZakaz], 
+    [Zakaziki].[AllPrice] AS [AllPrice]
+    FROM [dbo].[Zakaziki] AS [Zakaziki]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Zakazs_Client" Association="Self.FK_Zakazs_Client">
             <End Role="Client" EntitySet="Client" />
             <End Role="Zakazs" EntitySet="Zakazs" />
@@ -176,7 +187,15 @@
             <End Role="Tovars" EntitySet="Tovars" />
             <End Role="Zakazs" EntitySet="Zakazs" />
           </AssociationSet>
+          <EntitySet Name="Zakazikis" EntityType="ZakazModel.Zakaziki" />
         </EntityContainer>
+        <EntityType Name="Zakaziki">
+          <Key>
+            <PropertyRef Name="IdZakaz" />
+          </Key>
+          <Property Name="IdZakaz" Type="Int32" Nullable="false" />
+          <Property Name="AllPrice" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -222,6 +241,14 @@
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="IdTovar" ColumnName="IdTovar" />
                 <ScalarProperty Name="Kol" ColumnName="Kol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zakazikis">
+            <EntityTypeMapping TypeName="ZakazModel.Zakaziki">
+              <MappingFragment StoreEntitySet="Zakaziki">
+                <ScalarProperty Name="AllPrice" ColumnName="AllPrice" />
+                <ScalarProperty Name="IdZakaz" ColumnName="IdZakaz" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

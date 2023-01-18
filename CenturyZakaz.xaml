@@ -1,0 +1,26 @@
+﻿<Window x:Class="Prakt20_praktika_.CenturyZakaz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prakt20_praktika_"
+        mc:Ignorable="d"
+        Title="Сортировка по месяцу" Height="363" Width="584" MinHeight="363" MinWidth="584"  Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="81.009"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="centurygrib" Margin="0,0,0,2" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер месяца" Width="5*" Binding="{Binding DateZakaz}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя товара" Width="10*" Binding="{Binding Tovar.TovarName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Всего заказано" Width="6*" Binding="{Binding Kol}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Месяц" HorizontalAlignment="Left" Margin="23,3,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontFamily="Cascadia Code SemiBold" FontStyle="Normal" Grid.Row="1"/>
+        <Button Content="Найти" HorizontalAlignment="Left" Margin="169,30,0,0" VerticalAlignment="Top" FontSize="16" Width="73" Grid.Row="1" Click="FindMonth_Button"/>
+        <Button Margin="0,48,10,0" VerticalAlignment="Top" Content="Выйти" FontSize="14" Grid.Row="1" HorizontalAlignment="Right" Width="44" Click="Quit"/>
+        <DatePicker x:Name="dataPicker" HorizontalAlignment="Left" Margin="23,32,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

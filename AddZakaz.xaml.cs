@@ -57,6 +57,7 @@ namespace Prakt20_praktika_
             }
             _zakaz.IdClient = ((Client)(cbClient.SelectedItem)).IdClient;
             _zakaz.IdTovar = ((Tovar)(cbTovar.SelectedItem)).IdTovar;
+            _zakaz.Kol = Convert.ToInt32(Kolichestvo.Text);
             _zakaz.DateZakaz = (DateTime)DataPicker.SelectedDate;
             db.Zakazs.Add(_zakaz);
             db.SaveChanges();

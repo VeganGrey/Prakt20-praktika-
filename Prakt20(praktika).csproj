@@ -67,6 +67,12 @@
     <Compile Include="AddZakaz.xaml.cs">
       <DependentUpon>AddZakaz.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AllSummZakaz.xaml.cs">
+      <DependentUpon>AllSummZakaz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CenturyZakaz.xaml.cs">
+      <DependentUpon>CenturyZakaz.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
@@ -94,7 +100,18 @@
     <Compile Include="Zakaz.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Zakaziki.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Page Include="AddZakaz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllSummZakaz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CenturyZakaz.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
